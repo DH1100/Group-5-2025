@@ -103,13 +103,15 @@ Go to: → [[Pig 2 Escapes to Pig 3]]</tw-passagedata><tw-passagedata pid="18" n
 
 Pig 3 opened the door and let Pig 2 inside. Together, they prepared for the wolf’s inevitable arrival.
 
-Go to: → [[The Wolf Arrives at Pig 3’s House]]</tw-passagedata><tw-passagedata pid="19" name="The Pigs Prepare Together" tags="teamwork" position="1050,175" size="100,100">Pig 3 opened the door, and Pig 1 and Pig 2 scrambled inside. The three pigs quickly worked together to prepare defenses, knowing the wolf would arrive any moment.
+Go to: → [[The Pigs Prepare Together]]</tw-passagedata><tw-passagedata pid="19" name="The Pigs Prepare Together" tags="teamwork" position="1050,175" size="100,100">Pig 3 opened the door, and Pig 1 and Pig 2 scrambled inside. The three pigs quickly worked together to prepare defenses, knowing the wolf would arrive any moment.
 
 The wolf soon arrived at the brick house.
+(set: $tag_teamwork to true)
 
 [[The Wolf Arrives at Pig 3’s House]] </tw-passagedata><tw-passagedata pid="20" name="Pig 3 Stays Alone" tags="Alone" position="875,175" size="100,100">Pig 3 shut the door firmly, refusing to let the others inside. &quot;I can only count on myself,&quot; Pig 3 thought. Meanwhile, Pig 1 and Pig 2 fled into the woods, hoping to avoid the wolf.
 
 The wolf soon arrived at the brick house.
+(set: $tag_alone to true)
 
 [[The Wolf Arrives at Pig 3’s House]] </tw-passagedata><tw-passagedata pid="21" name="Setting Traps for the Wolf" tags="" position="762.5,525" size="100,100">The pigs hurriedly set up traps. They placed a boiling pot of water under the chimney and scattered slippery oil near the door to catch the wolf off guard.
 
@@ -165,32 +167,39 @@ The wolf hesitated but eventually accepted. &quot;Maybe I don’t need to blow h
 Go to: → [[Epilogue: Lessons Learned]]</tw-passagedata><tw-passagedata pid="29" name="Wolf Agrees to Change" tags="change" position="1250,625" size="100,100">The pigs reasoned with the wolf, helping him see the error of his ways. The wolf apologized and even offered to help them rebuild their homes.
 
 Together, they began a new chapter, proving that even the fiercest enemies could become friends.
-
+(set: $tag_change to true)
 Go to: → [[Epilogue: Lessons Learned]]</tw-passagedata><tw-passagedata pid="30" name="The Wolf Tries the Chimney" tags="Death" position="1250,500" size="100,100">The wolf gobbles down all the pigs.
-
+(set: $tag_death to true)
 Go to: → [[Epilogue: Lessons Learned]]</tw-passagedata><tw-passagedata pid="31" name="Epilogue: Lessons Learned" tags="" position="875,1100" size="100,100">The pigs sat together, reflecting on what had happened.
 
-(if:(history: where (passage:it)&#39;s tags contains &quot;teamwork&quot;)&#39;s length &gt;= 1)[Teamwork made us stronger] 
-(if:(history: where (passage:it)&#39;s tags contains &quot;alone&quot;)&#39;s length &gt;= 1)[We learned the hard way that unity is strength.]
-(if:(history: where (passage:it)&#39;s tags contains &quot;change&quot;)&#39;s length &gt;= 1)[Sometimes, even the fiercest foes can become allies.]
-(if:(history: where (passage:it)&#39;s tags contains &quot;death&quot;)&#39;s length &gt;= 1)[Better luck next time.]
+(if: $tag_teamwork is true)[Teamwork made us stronger.]
+(if: $tag_alone is true)[We learned the hard way that unity is strength.]
+(if: $tag_change is true)[Sometimes, even the fiercest foes can become allies.]
+(if: $tag_death is true)[Better luck next time.]
+
 The pigs’ story spread far and wide, becoming a lesson for others about courage, cleverness, and cooperation.
 
-End of Story</tw-passagedata><tw-passagedata pid="32" name="The Wolf Finally Breaks In" tags="teamwork" position="200,975" size="100,100">The wolf huffed and puffed one last time, and the stick house shuddered and collapsed. Pig 2 barely escaped the rubble, darting into the forest with the wolf on his heels.
+**End of Story.**</tw-passagedata><tw-passagedata pid="32" name="The Wolf Finally Breaks In" tags="teamwork" position="200,975" size="100,100">The wolf huffed and puffed one last time, and the stick house shuddered and collapsed. Pig 2 barely escaped the rubble, darting into the forest with the wolf on his heels.
 
 Pig 2 made it to Pig 3’s brick house, gasping for breath, and banged on the door.
 
-Go to: → [[The Wolf Arrives at Pig 3’s House]]</tw-passagedata><tw-passagedata pid="33" name="The Wolf Arrives at Pig 3’s House" tags="" position="925,325" size="100,100">The Big Bad Wolf approached the brick house, growling and pacing outside. &quot;Little pigs, little pigs, let me in!&quot; he roared, slamming his claws against the solid brick walls.
+Go to: → [[The Pigs Prepare Together]]</tw-passagedata><tw-passagedata pid="33" name="The Wolf Arrives at Pig 3’s House" tags="" position="925,325" size="100,100">The Big Bad Wolf approached the brick house, growling and pacing outside. &quot;Little pigs, little pigs, let me in!&quot; he roared, slamming his claws against the solid brick walls.
 
 Inside, Pig 3 stood firm. Whether alone or with Pig 1 and Pig 2, the final confrontation was at hand.
 
-Choices:
+(if: (history:) contains &quot;Pig 3 Stays Alone&quot;)[
+**I’ll handle this on my own.**
+→ [[Setting Traps for the Wolf]]
+→ [[Blocking the Chimney]]
+→ [[Negotiating with the Wolf]]
+]
 
-(if:(history: where (passage:it)&#39;s tags contains &quot;alone&quot;)&#39;s length &gt;= 1)[&quot;I’ll handle this on my own.&quot; → Prepare to fight back using traps. → [[Setting Traps for the Wolf]]
-Focus on defense by blocking the chimney and reinforcing the doors. → [[Blocking the Chimney]]
-Attempt to reason with the wolf. → [[Negotiating with the Wolf]]]
-(if:(history: where (passage:it)&#39;s tags contains &quot;teamwork&quot;)&#39;s length &gt;= 1)[Let’s work together and prepare for the wolf’s attack.&quot; → Prepare to fight back using traps. → [[Setting Traps for the Wolf]]
-Focus on defense by blocking the chimney and reinforcing the doors. → [[Blocking the Chimney]]]</tw-passagedata></tw-storydata>
+(if: (history:) contains &quot;The Pigs Prepare Together&quot;)[
+**Let’s work together and prepare for the wolf’s attack.**
+→ [[Setting Traps for the Wolf]]
+→ [[Blocking the Chimney]]
+→ [[Negotiating with the Wolf]]
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
