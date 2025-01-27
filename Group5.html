@@ -9,7 +9,204 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Group5.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Group5" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="88C23578-958D-4DCE-9003-6A743A2E74DF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. Your choices will determine how their story unfolds.
+<tw-storydata name="Group5" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="88C23578-958D-4DCE-9003-6A743A2E74DF" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* General Styling */
+body {
+  font-family: 'Playfair Display', serif; /* Whimsical storybook font */
+  background-color: #d4f0c0; /* Soft pastel green background */
+  color: #3a3a3a; /* Dark gray text for readability */
+  margin: 0;
+  padding: 0;
+}
+tw-story {
+    display: flex
+    flex-direction: column;
+    font: 100% Georgia, serif;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    padding: 5% 5%;
+    overflow: hidden;
+    background-color: #799863;;
+    color: #fff;
+}
+
+/* Passage Container */
+tw-passage {
+  display: block;
+  padding: 30px;
+  background: #fdf8e4; /* Soft parchment beige background for passages */
+  border: 3px solid #b8a382; /* Warm golden-brown border */
+  border-radius: 20px; /* Smooth, whimsical edges */
+  max-width: 800px;
+  margin: 60px auto; /* Centers the passage on the page */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Adds depth */
+  color: #3a3a3a; /* Dark gray text for readability */
+  text-align: justify; /* Aligns text to look like a storybook */
+  line-height: 1.8; /* Adds space between lines for easier reading */
+  z-index: 1;
+}
+/* Sidebar Styling */
+tw-sidebar {
+  position: absolute; /* Anchors the sidebar */
+  top: 140px; /* Distance from the top of the page */
+  right: 20px; /* Moves the sidebar further from the edge */
+  width: 80px; /* Slightly wider for better usability */
+  height: 120px; /* Adjusted height for content and icon */
+  display: flex; /* Enables flexbox for centering content */
+  flex-direction: column; /* Allows vertical stacking */
+  align-items: center; /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  padding: 10px; /* Adjusted padding for compact design */
+  background: #fefbe9; /* Soft pale yellow background */
+  border: 2px solid #b8a382; /* Warm golden-brown border */
+  border-radius: 10px; /* Rounded corners for a whimsical feel */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Subtle depth */
+  z-index: 10; /* Ensures it stays above other elements */
+  text-align: center; /* Centers the text inside */
+}
+
+/* Icon Styling */
+tw-icon {
+  width: 25px; /* Larger and more visible size */
+  height: 25px;
+  background: #b8a382; /* Matches sidebar border color */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
+  margin-bottom: 10px; /* Adds space between the icon and other content */
+}
+
+/* Sidebar Heading Styling */
+tw-sidebar h1, tw-sidebar h2, tw-sidebar h3 {
+  font-family: 'Playfair Display', serif; /* Whimsical font */
+  color: #7d5a50; /* Warm chocolate color for headings */
+  margin-bottom: 10px; /* Reduces spacing below headings */
+  font-size: 16px; /* Smaller heading font */
+}
+
+/* Sidebar Links Styling */
+tw-sidebar a {
+  color: #7d5a50; /* Matches link colors from main content */
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dashed #7d5a50; /* Subtle dashed underline */
+  transition: color 0.3s, border-color 0.3s;
+}
+
+tw-sidebar a:hover {
+  color: #a9714b; /* Lighter chocolate color on hover */
+  border-color: #a9714b;
+  text-decoration: underline;
+}
+
+
+
+/* Links */
+tw-link {
+  color: #7d5a50 !important; /* Warm chocolate color for links */
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px dashed #7d5a50; /* Whimsical dashed underline */
+  transition: color 0.3s, border-color 0.3s;
+}
+
+tw-link:hover {
+  color: #a9714b !important; /* Lighter chocolate tone on hover */
+  border-color: #a9714b;
+  text-decoration: underline; /* Adds an underline on hover */
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif; /* Matches body font for harmony */
+  color: #7d5a50; /* Warm chocolate color */
+  text-align: center;
+  margin: 20px 0;
+  letter-spacing: 2px; /* Slight spacing for elegance */
+  text-transform: uppercase; /* All caps for whimsical effect */
+}
+
+/* Buttons (Optional) */
+button {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: 2px solid #7d5a50;
+  background: #fdf8e4; /* Matches passage background */
+  color: #7d5a50;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background: #7d5a50;
+  color: #fdf8e4; /* Inverted colors for hover */
+}
+
+/* Page Background Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #d4f0c0, #bde4a6); /* Soft green gradient */
+  z-index: -1; /* Ensures it's behind everything */
+}
+
+/* Passage Transition Animation */
+tw-passage {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Blockquotes for Special Text */
+blockquote {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  background: #fefbe9; /* Subtle pale yellow */
+  border-left: 4px solid #b8a382;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: #7d5a50;
+  border-radius: 10px;
+}
+
+/* Styling Lists */
+ul, ol {
+  margin: 20px;
+  padding-left: 40px;
+}
+
+ul li, ol li {
+  font-family: 'Georgia', serif;
+  color: #3a3a3a;
+  margin: 8px 0;
+}
+
+ul li::marker, ol li::marker {
+  color: #7d5a50; /* Matches link and heading colors */
+  font-weight: bold;
+}
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">
+Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
+
+
+Your choices will determine how their story unfolds.
+
 
 Choices:
 
@@ -112,6 +309,7 @@ The wolf soon arrived at the brick house.
 
 The wolf soon arrived at the brick house.
 (set: $tag_alone to true)
+(set: $tag_teamwork to false)
 
 [[The Wolf Arrives at Pig 3’s House]] </tw-passagedata><tw-passagedata pid="21" name="Setting Traps for the Wolf" tags="" position="762.5,525" size="100,100">The pigs hurriedly set up traps. They placed a boiling pot of water under the chimney and scattered slippery oil near the door to catch the wolf off guard.
 
