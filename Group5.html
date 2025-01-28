@@ -201,11 +201,18 @@ ul li::marker, ol li::marker {
   font-weight: bold;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">var aduio = dcoument.createElement('audio');
-
-audio.src = './Audio/background.mp3';
-audio.loop = true;
-audio.play();</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
+  if (!document.getElementById("bgm")) {
+    const bgm = document.createElement("audio");
+    bgm.id = "bgm";
+    bgm.src = "audio/background-music.mp3"; // Replace with your audio file URL
+    bgm.loop = true;
+    bgm.volume = 0.5;
+    bgm.autoplay = true;
+    document.body.appendChild(bgm);
+  }
+};
+</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">
 Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
 &lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;
 
@@ -218,6 +225,24 @@ Choices:
 Follow Pig 1 (The Straw House) → [[Pig 1’s Story]]
 Follow Pig 2 (The Stick House) → [[Pig 2’s Story]]
 Follow Pig 3 (The Brick House) → [[Pig 3’s Story]]
+
+
+&lt;audio id=&quot;bgm&quot; autoplay loop&gt;
+  &lt;source src=&quot;./Audio/background.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;script&gt;
+  // Ensure BGM starts and persists
+  window.onload = function () {
+    const bgm = document.getElementById(&quot;bgm&quot;);
+    bgm.volume = 0.5; // Set volume (0.0 to 1.0)
+  };
+&lt;/script&gt;
+
+&lt;button onclick=&quot;document.getElementById(&#39;bgm&#39;).play()&quot;&gt;Play&lt;/button&gt;
+&lt;button onclick=&quot;document.getElementById(&#39;bgm&#39;).pause()&quot;&gt;Pause&lt;/button&gt;
+&lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.1&quot; onchange=&quot;document.getElementById(&#39;bgm&#39;).volume = this.value&quot;&gt;
 </tw-passagedata><tw-passagedata pid="2" name="Pig 1’s Story" tags="" position="425,275" size="100,100">Pig 1 decided on a straw house. &quot;It&#39;ll be quick to build,&quot; he thought. &quot;I can spend the rest of my time relaxing.&quot; But straw isn&#39;t the sturdiest material, and whispers of a wolf made things uncertain.
 
 Choices:
