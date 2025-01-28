@@ -201,18 +201,11 @@ ul li::marker, ol li::marker {
   font-weight: bold;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"><audio id="bgm" autoplay loop>
-  <source src="./Audio/background.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">var aduio = dcoument.createElement('audio');
 
-<script>
-  // Ensure BGM starts and persists
-  window.onload = function () {
-    const bgm = document.getElementById("bgm");
-    bgm.volume = 0.5; // Set volume (0.0 to 1.0)
-  };
-</script></script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">
+audio.src = './Audio/background.mp3';
+audio.loop = true;
+audio.play();</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">
 Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
 &lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;200&quot; height=&quot;200&quot;&gt;
 
