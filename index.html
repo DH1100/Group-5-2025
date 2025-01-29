@@ -201,13 +201,27 @@ ul li::marker, ol li::marker {
   font-weight: bold;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.bgm) {
-    window.bgm = new Audio("./Audio/background.mp3"); // Replace with your actual audio file path
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Ensure BGM persists across passages
+if (!window.bgm) {
+    window.bgm = new Audio("./Audio/background.mp3"); // Ensure this path is correct
     window.bgm.loop = true;
     window.bgm.volume = 0.5;
+    window.bgm.autoplay = true;
     window.bgm.play();
 }
-</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+
+// Functions to control BGM
+window.playBGM = function() {
+    if (window.bgm) window.bgm.play();
+};
+
+window.pauseBGM = function() {
+    if (window.bgm) window.bgm.pause();
+};
+
+window.setVolumeBGM = function(value) {
+    if (window.bgm) window.bgm.volume = value;
+};</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
 Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
 
 Your choices will determine how their story unfolds.
@@ -219,22 +233,10 @@ Follow Pig 1 (The Straw House) → [[Pig 1’s Story]]
 Follow Pig 2 (The Stick House) → [[Pig 2’s Story]]
 Follow Pig 3 (The Brick House) → [[Pig 3’s Story]]
 
-&lt;audio id=&quot;bgm&quot; autoplay loop&gt;
-  &lt;source src=&quot;./Audio/background.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-  Your browser does not support the audio element.
-&lt;/audio&gt;
-
-&lt;script&gt;
-  // Ensure BGM starts and persists
-  window.onload = function () {
-    const bgm = document.getElementById(&quot;bgm&quot;);
-    bgm.volume = 0.5; // Set volume (0.0 to 1.0)
-  };
-&lt;/script&gt;
-
-&lt;button onclick=&quot;document.getElementById(&#39;bgm&#39;).play()&quot;&gt;Play&lt;/button&gt;
-&lt;button onclick=&quot;document.getElementById(&#39;bgm&#39;).pause()&quot;&gt;Pause&lt;/button&gt;
-&lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.1&quot; onchange=&quot;document.getElementById(&#39;bgm&#39;).volume = this.value&quot;&gt;</tw-passagedata><tw-passagedata pid="2" name="Pig 1’s Story" tags="" position="425,275" size="100,100">&lt;img src=&quot;./Images/pig1.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+&lt;button onclick=&quot;playBGM()&quot;&gt;Play&lt;/button&gt;
+&lt;button onclick=&quot;pauseBGM()&quot;&gt;Pause&lt;/button&gt;
+&lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.1&quot; oninput=&quot;setVolumeBGM(this.value)&quot;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="Pig 1’s Story" tags="" position="425,275" size="100,100">&lt;img src=&quot;./Images/pig1.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
 Pig 1 decided on a straw house. &quot;It&#39;ll be quick to build,&quot; he thought. &quot;I can spend the rest of my time relaxing.&quot; But straw isn&#39;t the sturdiest material, and whispers of a wolf made things uncertain.
 
 &lt;img src=&quot;./Images/straw.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
