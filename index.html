@@ -201,7 +201,18 @@ ul li::marker, ol li::marker {
   font-weight: bold;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
+  if (!document.getElementById("bgm")) {
+    const bgm = document.createElement("audio");
+    bgm.id = "bgm";
+    bgm.src = "./Audio/background.mp3"; // Replace with your audio file URL
+    bgm.loop = true;
+    bgm.volume = 0.5;
+    bgm.autoplay = true;
+    document.body.appendChild(bgm);
+  }
+};
+</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
 Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
 
 Your choices will determine how their story unfolds.
