@@ -202,13 +202,14 @@ ul li::marker, ol li::marker {
 }
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document).on(':passagerender', function () {
-    if (!window.bgmInitialized) {
-        window.bgmInitialized = true;
+    // Check if the BGM is already initialized
+    if (!window.bgm) {
+        console.log("Initializing BGM...");
 
-        // Create audio element dynamically (so it persists)
+        // Create audio element dynamically
         let bgm = document.createElement("audio");
         bgm.id = "bgm";
-        bgm.src = "Audio/background.mp3"; // Make sure this path is correct
+        bgm.src = "Audio/background.mp3"; // Ensure this path is correct
         bgm.loop = true;
         bgm.autoplay = true;
         bgm.volume = 0.5;
@@ -216,8 +217,31 @@ ul li::marker, ol li::marker {
 
         // Store reference globally for control
         window.bgm = bgm;
+    } else {
+        console.log("BGM already initialized.");
     }
-});</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+});
+$(document).on(':passagerender', function () {
+    // Check if the BGM is already initialized
+    if (!window.bgm) {
+        console.log("Initializing BGM...");
+
+        // Create audio element dynamically
+        let bgm = document.createElement("audio");
+        bgm.id = "bgm";
+        bgm.src = "Audio/background.mp3"; // Ensure this path is correct
+        bgm.loop = true;
+        bgm.autoplay = true;
+        bgm.volume = 0.5;
+        document.body.appendChild(bgm);
+
+        // Store reference globally for control
+        window.bgm = bgm;
+    } else {
+        console.log("BGM already initialized.");
+    }
+});
+</script><tw-tag name="teamwork" color="red"></tw-tag><tw-tag name="Alone" color="orange"></tw-tag><tw-tag name="Death" color="purple"></tw-tag><tw-tag name="change" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="550,150" size="100,100">&lt;img src=&quot;./Images/threepigs.jpg&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;display: block; margin: auto;&quot;&gt;
 Once upon a time, there were three little pigs. Each decided to build their own house to protect themselves from the rumored Big Bad Wolf. Each pig had their own ideas on how to do it—some quicker than others, some sturdier than others. 
 
 Your choices will determine how their story unfolds.
@@ -229,10 +253,10 @@ Follow Pig 1 (The Straw House) → [[Pig 1’s Story]]
 Follow Pig 2 (The Stick House) → [[Pig 2’s Story]]
 Follow Pig 3 (The Brick House) → [[Pig 3’s Story]]
 
-&lt;button onclick=&quot;window.bgm.play()&quot;&gt;Play&lt;/button&gt;
-&lt;button onclick=&quot;window.bgm.pause()&quot;&gt;Pause&lt;/button&gt;
+&lt;button onclick=&quot;if(window.bgm){ window.bgm.play(); }&quot;&gt;Play&lt;/button&gt;
+&lt;button onclick=&quot;if(window.bgm){ window.bgm.pause(); }&quot;&gt;Pause&lt;/button&gt;
 &lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;1&quot; step=&quot;0.1&quot; 
-       onchange=&quot;window.bgm.volume = this.value&quot;&gt;</tw-passagedata><tw-passagedata pid="2" name="Pig 1’s Story" tags="" position="425,275" size="100,100">&lt;img src=&quot;./Images/pig1.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
+       onchange=&quot;if(window.bgm){ window.bgm.volume = this.value; }&quot;&gt;</tw-passagedata><tw-passagedata pid="2" name="Pig 1’s Story" tags="" position="425,275" size="100,100">&lt;img src=&quot;./Images/pig1.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
 Pig 1 decided on a straw house. &quot;It&#39;ll be quick to build,&quot; he thought. &quot;I can spend the rest of my time relaxing.&quot; But straw isn&#39;t the sturdiest material, and whispers of a wolf made things uncertain.
 
 &lt;img src=&quot;./Images/straw.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;display: block; margin: auto;&quot;&gt;
